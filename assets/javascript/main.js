@@ -43,10 +43,11 @@ $(document).ready(function () {
                 $(gifImage).attr("data-still", results[i].images.fixed_height_still.url);
                 $(gifImage).attr("data-animate", results[i].images.fixed_height.url);
                 $(gifImage).attr("data-state", "still");
-                $(gifImage).attr("class", "animal-gif")
+                $(gifImage).attr("class", "animal-gif");
 
                 $(animalDiv).append(p);
                 $(animalDiv).append(gifImage);
+                $(animalDiv).attr("data-fav", "no");
                 $("#gif-dump").append(animalDiv);
             }
         });
@@ -63,6 +64,23 @@ $(document).ready(function () {
             $(this).attr("data-state", "still");
         }
     });
+
+    $(document).on('dragend', '.animal-div', function (e) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        var favorite = $(this).attr("data-fav");
+        if (favorite === "no") {
+            $(this).appendTo(".dropzone");
+            $(this).attr("data-fav", "yes");
+        } else if (favorite === "yes") {
+            $(this).appendTo("#gif-dump");
+            $(this).attr("data-fav", "no");
+        } else {
+            
+        }
+       
+    });
+    
 
     renderButtons();
 });
