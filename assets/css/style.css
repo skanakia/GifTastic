@@ -1,0 +1,23 @@
+.animal {
+    margin: 10px;
+    background-color: teal;
+    color: white;
+}
+
+.animal-div {
+    float: left;
+    margin: 10px;
+}
+
+.headImage {
+    max-height: 400px;
+}
+
+.jumbotron {
+    background-color: black;
+}
+
+h1 {
+    float: right;
+    color: white;
+}
